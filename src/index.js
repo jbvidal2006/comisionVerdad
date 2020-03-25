@@ -7,7 +7,7 @@ const {mongoose}  = require('./database');
 
 
 //section settings
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 3001);
 
 //section  Middlewares 
 app.use(morgan('dev'));
@@ -27,6 +27,6 @@ app.use(express.static(path.join(__dirname,'public')))
 
 //Starting the server
 app.listen(app.get('port'), ()=>{
-    console.log(`Server on port ${app.get('port')}  `); 
+    console.log(`Server on port ${app.get('port')}`); 
 });
 
