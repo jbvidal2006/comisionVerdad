@@ -141,7 +141,7 @@ class App extends Component {
                                     <form onSubmit={this.addResource}>
                                         <div className="row">
                                             <div className="input-file col s12">
-                                                <input name="title" onChange={this.handleChange} value={this.state.title} type="text" placeholder="Titulo del recurso" />
+                                                <input name="title" onChange={this.handleChange} value={this.state.title} type="text" placeholder="Titulo del recurso" required/>
                                             </div>
                                         </div>
                                         <div className="row">
