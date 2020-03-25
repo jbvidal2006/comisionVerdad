@@ -18,8 +18,8 @@ class App extends Component {
         this.addResource = this.addResource.bind(this);
     }
     addResource(e) {
-        if(this.state._id){
-            fetch('/api/resource/'+this.state._id, {
+        if (this.state._id) {
+            fetch('/api/resource/' + this.state._id, {
                 method: 'PUT',
                 body: JSON.stringify(this.state),
                 headers: {
@@ -27,22 +27,22 @@ class App extends Component {
                     'Content-type': 'application/json'
                 }
             })
-            .then(res => res.json)
-            .then(data => {
-                M.toast({ html: 'Recurso editado' });
-                this.setState({
-                    title: '',
-                    key: '',
-                    description: '',
-                    source: '',
-                    typeResource: '',
-                    coverage: '',
-                    _id: ''
-                });
-                this.fecthResource();
-            })
-            .catch(err => console.error(err));
-        }else{
+                .then(res => res.json)
+                .then(data => {
+                    M.toast({ html: 'Recurso editado' });
+                    this.setState({
+                        title: '',
+                        key: '',
+                        description: '',
+                        source: '',
+                        typeResource: '',
+                        coverage: '',
+                        _id: ''
+                    });
+                    this.fecthResource();
+                })
+                .catch(err => console.error(err));
+        } else {
             fetch('/api/resource', {
                 method: 'POST',
                 body: JSON.stringify(this.state),
@@ -66,7 +66,7 @@ class App extends Component {
                 })
                 .catch(err => console.error(err));
         }
-        
+
         e.preventDefault();
     }
 
@@ -141,7 +141,7 @@ class App extends Component {
                                     <form onSubmit={this.addResource}>
                                         <div className="row">
                                             <div className="input-file col s12">
-                                                <input name="title" onChange={this.handleChange} value={this.state.title} type="text" placeholder="Titulo" />
+                                                <input name="title" onChange={this.handleChange} value={this.state.title} type="text" placeholder="Titulo del recurso" />
                                             </div>
                                         </div>
                                         <div className="row">
@@ -161,7 +161,9 @@ class App extends Component {
                                         </div>
                                         <div className="row">
                                             <div className="input-file col s12">
-                                                <input name="typeResource" onChange={this.handleChange} value={this.state.typeResource} type="text" placeholder="Tipo de recurso" />
+                                            <input name="typeResource" onChange={this.handleChange} value={this.state.typeResource} type="text" placeholder="Tipo de recurso" />
+
+                                               
                                             </div>
                                         </div>
                                         <div className="row">
